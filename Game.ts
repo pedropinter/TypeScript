@@ -1,8 +1,16 @@
-var leitor = require("readline-sync")
-class Jogo{
-    protected titulo: string
-    protected genero: string
-    protected classificacaoEtaria: number
+/*var leitor = require("readline-sync")
+
+export interface JogoInterface{
+titulo: string
+genero: string
+classificacaoEtaria: number
+getJogo(): void
+setJogo(): void
+}
+export class Jogo implements JogoInterface{
+    public titulo: string
+    public genero: string
+    public classificacaoEtaria: number
 
     constructor(titulo: string, genero: string, classificacaoEtaria: number){
         this.titulo = titulo
@@ -21,14 +29,13 @@ class Jogo{
         this.classificacaoEtaria = classUp
     }
 }
-class JogoEletronico extends Jogo{
-    protected plataforma: string
 
-    super (titulo: string, genero: string, classificacaoEtaria: number, plataforma: string){
-        this.titulo = titulo
-        this.genero = genero
-        this.classificacaoEtaria = classificacaoEtaria
-        this.plataforma = plataforma
+export class JogoEletronico extends Jogo implements JogoInterface{
+    public plataforma: string
+
+    constructor (titulo: string, genero: string, classificacaoEtaria: number, plataforma: string){
+    super(titulo,genero,classificacaoEtaria)
+    this.plataforma = plataforma
     }
     public getJogoEletronico(): void{
         console.log(`Jogo: ${this.titulo}/Plataforma: ${this.plataforma}`);
@@ -45,14 +52,13 @@ class JogoEletronico extends Jogo{
 
     }
 }
-class JogoTabuleiro extends Jogo{
-    protected numerodePlayers: number
 
-    super (titulo: string, genero: string, classificacaoEtaria: number, numerodePlayers: number){
-        this.titulo = titulo
-        this.genero = genero
-        this.classificacaoEtaria = classificacaoEtaria
-        this.numerodePlayers = numerodePlayers
+export class JogoTabuleiro extends Jogo implements JogoInterface{
+    numerodePlayers: number
+
+    constructor (titulo: string, genero: string, classificacaoEtaria: number, numerodePlayers: number){
+        super(titulo,genero,classificacaoEtaria)
+        this.numerodePlayers = this.numerodePlayers
     }
     public getJogoTabuleiro(): void{
         console.log(`Jogo: ${this.titulo}/nNumPlayers: ${this.numerodePlayers}`);
@@ -69,11 +75,23 @@ class JogoTabuleiro extends Jogo{
 
     }
 }
-class BlibiotecaJogos {
-    protected jogos: Jogo[]
-    
-    
-    
+/*class BlibiotecaJogos {
+    public jogos: Jogo[]
 
-
+    constructor(){
+        this.jogos = []
+    }
+    public addJogos(jogo: Jogo): void {
+        this.jogos.push(jogo)
+    }
+    public removerJogo(): void{
+        console.log(this.jogos)
+        let titulo = leitor.question('Insira um titulo para deletar: ')
+        this.jogos = this.jogos.filter(jogo => jogo.titulo !== titulo)
+    }
 }
+let jogoUm = new Jogo("RD2","Acao",14)
+let estante = new BlibiotecaJogos()
+
+estante.addJogos(jogoUm)
+*/
